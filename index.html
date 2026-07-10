@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Smart Home Model - Science Project</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0fdf4;
+            min-height: 100vh;
+        }
+        .hero {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 6px dashed #fcd34d;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            color: #fff;
+            font-size: 2.8em;
+            margin: 0;
+            text-shadow: 3px 3px 0px #15803d;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            color: #ecfccb;
+            font-size: 1.3em;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .hero-badge {
+            margin-top: 15px;
+            display: inline-block;
+            background: #fef08a;
+            color: #854d0e;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 1em;
+            border: 3px solid #fbbf24;
+            transform: rotate(-2deg);
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: #fff;
+            border: 5px solid #86efac;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 15px;
+            border: 4px dashed #4ade80;
+        }
+        .about-box {
+            background: #fffbeb;
+            border-left: 8px solid #f59e0b;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .feature-card:hover { transform: scale(1.03); }
+        .fc-blue { background: #e0f2fe; border: 4px solid #38bdf8; }
+        .fc-yellow { background: #fef3c7; border: 4px solid #fbbf24; }
+        .fc-gold { background: #fef9c3; border: 4px solid #facc15; }
+        .fc-purple { background: #f3e8ff; border: 4px solid #c084fc; }
+        .steps-box {
+            background: #fff;
+            border: 5px solid #4ade80;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+        .step-num {
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+        .materials-box {
+            background: #fdf2f8;
+            border: 4px dashed #ec4899;
+            border-radius: 20px;
+            padding: 25px;
+        }
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .material-item {
+            background: #fff;
+            padding: 12px 15px;
+            border-radius: 12px;
+            border: 2px solid #f9a8d4;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .benefits-box {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border: 4px solid #4ade80;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .benefit-item {
+            background: #fff;
+            padding: 18px;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid #86efac;
+        }
+        .facts-box {
+            background: #fff;
+            border: 5px solid #f472b6;
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        .facts-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: #f472b6;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            transform: rotate(12deg);
+        }
+        .message-box {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 4px dashed #fff;
+        }
+        h2 { font-size: 1.8em; margin: 0 0 15px 0; }
+        h3 { font-size: 1.4em; margin: 0 0 10px 0; }
+        h4 { font-size: 1.2em; margin: 0 0 8px 0; }
+        p { font-size: 1.15em; line-height: 1.7; margin: 0; }
+        ul { font-size: 1.1em; line-height: 2; margin: 0; padding-left: 25px; }
+        .emoji { font-size: 3em; margin-bottom: 10px; }
+        .emoji-lg { font-size: 2.5em; margin-bottom: 8px; }
+        .emoji-sm { font-size: 1.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Hero Banner -->
+<div class="hero">
+    <h1>🌿 Eco-Smart Home Model 🏠</h1>
+    <p>Save Water. Use Clean Energy. Save Earth.</p>
+    <div class="hero-badge">⭐ Sustainable Living for a Greener Future! ⭐</div>
+</div>
+
+<!-- Main Image Section -->
+<div class="container">
+    <div class="card">
+        <img src="model_photo.jpg" alt="Eco-Smart Home Model">
+        <p style="color: #166534; font-size: 1.1em; margin-top: 15px; font-style: italic;">"My handmade model showing how we can save water and use clean energy!"</p>
+    </div>
+</div>
+
+<!-- About the Project -->
+<div class="container">
+    <div class="about-box">
+        <h2 style="color: #b45309;">📋 About My Project</h2>
+        <p style="color: #78350f;">
+            This model shows an <strong>Eco-Smart Home</strong> where we use <strong>rainwater harvesting</strong>, <strong>drainage water purification</strong>, and <strong>renewable energy</strong> (solar and wind) to live sustainably. The purified drainage water is reused for watering the garden and fields, saving precious freshwater!
+        </p>
+    </div>
+</div>
+
+<!-- 4 Feature Cards -->
+<div class="container">
+    <div class="feature-grid">
+
+        <div class="feature-card fc-blue">
+            <div class="emoji">🌧️</div>
+            <h3 style="color: #0369a1;">Rainwater Harvesting</h3>
+            <p style="color: #0c4a6e; font-size: 1em;">
+                Rainwater is collected from the rooftop and stored in a tank. This water can be used for cleaning, gardening, and other household needs instead of wasting it!
+            </p>
+        </div>
+
+        <div class="feature-card fc-yellow">
+            <div class="emoji">💧</div>
+            <h3 style="color: #92400e;">Drainage Water Purification</h3>
+            <p style="color: #78350f; font-size: 1em;">
+                Dirty drainage water passes through layers of <strong>stones, pebbles, coal, seeds, and cotton</strong>. These natural filters remove dirt and make the water clean enough for watering fields!
+            </p>
+        </div>
+
+        <div class="feature-card fc-gold">
+            <div class="emoji">☀️</div>
+            <h3 style="color: #854d0e;">Solar Panel</h3>
+            <p style="color: #713f12; font-size: 1em;">
+                The solar panel on the house roof captures sunlight and converts it into electricity. This clean energy powers lights and small appliances without pollution!
+            </p>
+        </div>
+
+        <div class="feature-card fc-purple">
+            <div class="emoji">💨</div>
+            <h3 style="color: #6b21a8;">Windmill</h3>
+            <p style="color: #581c87; font-size: 1em;">
+                The windmill uses wind energy to generate electricity. When the wind blows, the blades spin and produce power — another great way to get clean, free energy!
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Section -->
+<div class="container">
+    <div class="steps-box">
+        <h2 style="color: #166534; text-align: center; margin-bottom: 25px;">🔧 How Does My Model Work?</h2>
+
+        <div class="step" style="background: #f0fdf4; border-left: 6px solid #22c55e;">
+            <div class="step-num" style="background: #22c55e;">1</div>
+            <p style="color: #14532d;"><strong>Rainwater Collection:</strong> Rain falls on the house roof and flows into the collection tank through pipes.</p>
+        </div>
+
+        <div class="step" style="background: #fffbeb; border-left: 6px solid #f59e0b;">
+            <div class="step-num" style="background: #f59e0b;">2</div>
+            <p style="color: #78350f;"><strong>Drainage Water Purification:</strong> Dirty water goes through layers of stones → pebbles → coal → seeds → cotton. Each layer removes more dirt!</p>
+        </div>
+
+        <div class="step" style="background: #fef9c3; border-left: 6px solid #eab308;">
+            <div class="step-num" style="background: #eab308;">3</div>
+            <p style="color: #713f12;"><strong>Clean Water Reuse:</strong> The purified water is then used to water the garden, plants, and fields. No water is wasted!</p>
+        </div>
+
+        <div class="step" style="background: #e0f2fe; border-left: 6px solid #0ea5e9;">
+            <div class="step-num" style="background: #0ea5e9;">4</div>
+            <p style="color: #0c4a6e;"><strong>Clean Energy:</strong> The solar panel and windmill generate electricity from sunlight and wind — no pollution, no bills!</p>
+        </div>
+    </div>
+</div>
+
+<!-- Materials Used -->
+<div class="container">
+    <div class="materials-box">
+        <h2 style="color: #be185d; text-align: center; margin-bottom: 20px;">🛠️ Materials I Used</h2>
+        <div class="materials-grid">
+            <div class="material-item"><span class="emoji-sm">📦</span><span style="color: #831843;">Cardboard box (base)</span></div>
+            <div class="material-item"><span class="emoji-sm">🎨</span><span style="color: #831843;">Colored paper & paint</span></div>
+            <div class="material-item"><span class="emoji-sm">🪨</span><span style="color: #831843;">Stones, pebbles & coal</span></div>
+            <div class="material-item"><span class="emoji-sm">🌱</span><span style="color: #831843;">Seeds & cotton</span></div>
+            <div class="material-item"><span class="emoji-sm">🍦</span><span style="color: #831843;">Ice-cream sticks (fence)</span></div>
+            <div class="material-item"><span class="emoji-sm">🪵</span><span style="color: #831843;">Plastic bottles & caps</span></div>
+            <div class="material-item"><span class="emoji-sm">🚗</span><span style="color: #831843;">Toy car</span></div>
+            <div class="material-item"><span class="emoji-sm">🌿</span><span style="color: #831843;">Artificial plants & grass</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container">
+    <div class="benefits-box">
+        <h2 style="color: #166534; text-align: center; margin-bottom: 20px;">🌍 Why is This Important?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="emoji-lg">💧</div>
+                <h4 style="color: #166534;">Saves Water</h4>
+                <p style="color: #15803d; font-size: 0.95em;">Rainwater and purified drainage water reduce freshwater use.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="emoji-lg">⚡</div>
+                <h4 style="color: #166534;">Clean Energy</h4>
+                <p style="color: #15803d; font-size: 0.95em;">Solar and wind power don't pollute the air like coal or diesel.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="emoji-lg">🌱</div>
+                <h4 style="color: #166534;">Helps Farmers</h4>
+                <p style="color: #15803d; font-size: 0.95em;">Purified water can irrigate crops without wasting drinking water.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="emoji-lg">♻️</div>
+                <h4 style="color: #166534;">Reduces Waste</h4>
+                <p style="color: #15803d; font-size: 0.95em;">Reusing drainage water means less dirty water goes into rivers.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fun Facts -->
+<div class="container">
+    <div class="facts-box">
+        <div class="facts-badge">Did You Know?</div>
+        <h2 style="color: #be185d; margin-bottom: 15px;">🧠 Amazing Facts!</h2>
+        <ul style="color: #831843;">
+            <li>India gets about <strong>1,170 mm of rain</strong> every year — but most of it goes to waste! 🌧️</li>
+            <li>Ancient Indians used rainwater harvesting <strong>4,000 years ago</strong> in stepwells and tanks! 🏛️</li>
+            <li>One hour of sunlight on Earth can power the whole world for <strong>one year</strong>! ☀️</li>
+            <li>Windmills have been used for over <strong>1,000 years</strong> to pump water and grind grain! 💨</li>
+            <li>Coal and pebbles can filter water naturally — just like how the Earth cleans groundwater! 🪨</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Conclusion / Message -->
+<div class="container" style="margin-bottom: 40px;">
+    <div class="message-box">
+        <h2 style="color: #fff; text-shadow: 2px 2px 0px #15803d;">🌟 My Message to Everyone</h2>
+        <p style="color: #ecfccb; margin-bottom: 20px;">
+            "If we all start saving water and using clean energy, we can make our Earth green and beautiful again. Even small steps like rainwater harvesting and using solar power can make a BIG difference! Let's all be Eco-Heroes! 🦸‍♀️🦸‍♂️"
+        </p>
+        <div style="display: inline-block; background: #fff; color: #16a34a; padding: 12px 30px; border-radius: 30px; font-size: 1.2em; font-weight: bold; border: 3px solid #15803d;">
+            Thank You! 🙏
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
